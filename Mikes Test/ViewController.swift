@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newText = appDelegate.GlobalDeepLinkTextVariable
+        print(newText ?? "No value passed from AppDelegate")
+        MainLabel.text = newText
     }
     
     @IBOutlet weak var MainLabel: UILabel!
@@ -32,6 +34,7 @@ class ViewController: UIViewController {
             MainLabel.text = newText
             setTextBool = true
         }
+        print("setText boolean set to " + String(setTextBool))
     }
 
     @IBAction func Button2Method(_ sender: UIButton) {

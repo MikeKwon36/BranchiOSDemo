@@ -48,5 +48,7 @@
 			</array>
 		</dict>
 	</array>
+	<key>branch_app_domain</key>
+	<string>kwon36.app.link</string>
 </dict>
 </plist>
