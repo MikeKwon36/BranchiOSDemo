@@ -7,17 +7,52 @@
 //
 
 import UIKit
+import Branch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var GlobalDeepLinkTextVariable: String = "empty"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let branch = Branch.getInstance()
+        branch?.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: {params, error in
+            // If the key 'kwon' is present in the deep link dictionary
+            if error == nil && params?["kwon"] != nil {
+                print(params?["kwon"] ?? "No data received")
+            }
+        })
+        
         return true
     }
+    
+    // Respond to URI scheme links
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        // pass the url to the handle deep link call
+        Branch.getInstance().application(application,
+                                         open: url,
+                                         sourceApplication: sourceApplication,
+                                         annotation: annotation
+        )
+        
+        // do other deep link routing for the Facebook SDK, Pinterest SDK, etc
+        return true
+    }
+    
+    // Respond to Universal Links
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        // pass the url to the handle deep link call
+        Branch.getInstance().continue(userActivity)
+        
+        return true
+    }
+    
+    
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

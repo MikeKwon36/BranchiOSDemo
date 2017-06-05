@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C267F6BD1EE49752005876FD /* Branch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C267F6BC1EE49752005876FD /* Branch.framework */; };
+		C267F6BF1EE4975F005876FD /* Branch-SDK in Resources */ = {isa = PBXBuildFile; fileRef = C267F6BE1EE4975E005876FD /* Branch-SDK */; };
+		C267F6C21EE498D5005876FD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C267F6C11EE498D5005876FD /* AdSupport.framework */; };
+		C267F6C41EE498DD005876FD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C267F6C31EE498DD005876FD /* CoreTelephony.framework */; };
+		C267F6C61EE498E5005876FD /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C267F6C51EE498E5005876FD /* CoreSpotlight.framework */; };
+		C267F6C81EE498EE005876FD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C267F6C71EE498EE005876FD /* MobileCoreServices.framework */; };
+		C267F6CA1EE498F8005876FD /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C267F6C91EE498F8005876FD /* iAd.framework */; };
 		C290900B1EE4593B0025CA58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C290900A1EE4593B0025CA58 /* AppDelegate.swift */; };
 		C290900D1EE4593B0025CA58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C290900C1EE4593B0025CA58 /* ViewController.swift */; };
 		C29090101EE4593B0025CA58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C290900E1EE4593B0025CA58 /* Main.storyboard */; };
@@ -34,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C267F6BC1EE49752005876FD /* Branch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Branch.framework; path = "Branch-iOS-SDK/Branch.framework"; sourceTree = "<group>"; };
+		C267F6BE1EE4975E005876FD /* Branch-SDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Branch-SDK"; path = "Branch-iOS-SDK/Branch-SDK"; sourceTree = "<group>"; };
+		C267F6C11EE498D5005876FD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		C267F6C31EE498DD005876FD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C267F6C51EE498E5005876FD /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		C267F6C71EE498EE005876FD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C267F6C91EE498F8005876FD /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		C29090071EE4593B0025CA58 /* Mikes Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mikes Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C290900A1EE4593B0025CA58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C290900C1EE4593B0025CA58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +68,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C267F6CA1EE498F8005876FD /* iAd.framework in Frameworks */,
+				C267F6C81EE498EE005876FD /* MobileCoreServices.framework in Frameworks */,
+				C267F6C61EE498E5005876FD /* CoreSpotlight.framework in Frameworks */,
+				C267F6C41EE498DD005876FD /* CoreTelephony.framework in Frameworks */,
+				C267F6C21EE498D5005876FD /* AdSupport.framework in Frameworks */,
+				C267F6BD1EE49752005876FD /* Branch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +94,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C267F6C01EE498D5005876FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C267F6C91EE498F8005876FD /* iAd.framework */,
+				C267F6C71EE498EE005876FD /* MobileCoreServices.framework */,
+				C267F6C51EE498E5005876FD /* CoreSpotlight.framework */,
+				C267F6C31EE498DD005876FD /* CoreTelephony.framework */,
+				C267F6C11EE498D5005876FD /* AdSupport.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C2908FFE1EE4593B0025CA58 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +113,7 @@
 				C290901E1EE4593C0025CA58 /* Mikes TestTests */,
 				C29090291EE4593C0025CA58 /* Mikes TestUITests */,
 				C29090081EE4593B0025CA58 /* Products */,
+				C267F6C01EE498D5005876FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +130,8 @@
 		C29090091EE4593B0025CA58 /* Mikes Test */ = {
 			isa = PBXGroup;
 			children = (
+				C267F6BE1EE4975E005876FD /* Branch-SDK */,
+				C267F6BC1EE49752005876FD /* Branch.framework */,
 				C290900A1EE4593B0025CA58 /* AppDelegate.swift */,
 				C290900C1EE4593B0025CA58 /* ViewController.swift */,
 				C290900E1EE4593B0025CA58 /* Main.storyboard */,
@@ -232,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C267F6BF1EE4975F005876FD /* Branch-SDK in Resources */,
 				C29090151EE4593C0025CA58 /* LaunchScreen.storyboard in Resources */,
 				C29090121EE4593C0025CA58 /* Assets.xcassets in Resources */,
 				C29090101EE4593B0025CA58 /* Main.storyboard in Resources */,
@@ -412,6 +448,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mikes\\ Test/Branch-iOS-SDK",
+					"$(PROJECT_DIR)/Branch.framework/Headers",
+				);
 				INFOPLIST_FILE = "Mikes Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kwon.Mikes-Test";
@@ -424,6 +465,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mikes\\ Test/Branch-iOS-SDK",
+					"$(PROJECT_DIR)/Branch.framework/Headers",
+				);
 				INFOPLIST_FILE = "Mikes Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kwon.Mikes-Test";
@@ -505,6 +551,7 @@
 				C29090311EE4593C0025CA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C29090321EE4593C0025CA58 /* Build configuration list for PBXNativeTarget "Mikes TestTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +560,7 @@
 				C29090341EE4593C0025CA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C29090351EE4593C0025CA58 /* Build configuration list for PBXNativeTarget "Mikes TestUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +569,7 @@
 				C29090371EE4593C0025CA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
