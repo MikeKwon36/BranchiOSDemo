@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var GlobalDeepLinkTextVariable: String = "empty"
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // If the key 'kwon' is present in the deep link dictionary
             if error == nil && params?["kwon"] != nil {
                 print(params?["kwon"] ?? "No data received")
+                self.GlobalDeepLinkTextVariable = params?["kwon"] as! String
             }
         })
         
