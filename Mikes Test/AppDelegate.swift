@@ -14,19 +14,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var GlobalDeepLinkTextVariable: String = "Deep Link Data empty"
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let branch = Branch.getInstance()
+        let branch: Branch = Branch.getInstance()
+        branch.setDebug()
+        
+        let mid: String = "3456"
+        //$adobe_visitor_id will appear in open event network call
+        branch.setRequestMetadataKey("$adobe_visitor_id", value: "123423")
+        //$marketing_cloud_visitor_id will not appear in open event network call, as mid is never populated...
+        branch.setRequestMetadataKey("$marketing_cloud_visitor_id", value:mid as NSObject!);
+        //arbitrary values can NOT be retrieved in event metadata (though will appear in 
+        branch.setRequestMetadataKey("$kwon", value:"yo");
+
         print("didFinishLaunching method called & branch object instantiated at " + branch.debugDescription)
-        branch?.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: {params, error in
+        branch.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: {params, error in
             print("Branch initSession function called")
             // If the key 'kwon' is present in the deep link dictionary
             if error == nil && params?["kwon"] != nil {
                 self.GlobalDeepLinkTextVariable = params?["kwon"] as! String
+                print(params ?? "init callback params")
             }
-            print(params?["kwon"] ?? "no deep link data found in branch object")
+            print(params ?? "init callback params")
         })
         
         return true

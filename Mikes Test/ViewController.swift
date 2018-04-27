@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Branch
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,9 @@ class ViewController: UIViewController {
         newText = appDelegate.GlobalDeepLinkTextVariable
         print(newText ?? "No value passed from AppDelegate")
         MainLabel.text = newText
+        let buo = BranchUniversalObject(canonicalIdentifier: "content/123")
+        buo.contentMetadata.customMetadata = ["custom":"123"]
+        buo.contentMetadata.customMetadata = ["anything":"everything"]
     }
     
     @IBOutlet weak var MainLabel: UILabel!
