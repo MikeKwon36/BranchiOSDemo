@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+        print("didFinishLaunchingWithOptions method called")
+
         let branch: Branch = Branch.getInstance()
         branch.setDebug()
         
@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //arbitrary values can NOT be retrieved in event metadata (though will appear in 
         branch.setRequestMetadataKey("$kwon", value:"yo");
 
-        print("didFinishLaunching method called & branch object instantiated at " + branch.debugDescription)
+        print("branch object instantiated at " + branch.debugDescription)
         branch.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: {params, error in
             print("Branch initSession function called")
             // If the key 'kwon' is present in the deep link dictionary
@@ -45,31 +45,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Respond to URI scheme links
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         // pass the url to the handle deep link call
-        print("URI Scheme function called")
-        Branch.getInstance().application(application,
-                                         open: url,
-                                         sourceApplication: sourceApplication,
-                                         annotation: annotation
-        )
+        print("open url: URL, options: called")
+        Branch.getInstance().application(app, open: url, options:options)
         
         // do other deep link routing for the Facebook SDK, Pinterest SDK, etc
         return true
     }
     
-    // Respond to Universal Links
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        // pass the url to the handle deep link call
-        print("Universal Links function called")
-        Branch.getInstance().continue(userActivity)
-        
+    // Respond to URI scheme links (deprecated - OLD)
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        print("open url: URL, sourceApplication: called")
+        Branch.getInstance().application(application,
+                                         open: url,
+                                         sourceApplication: sourceApplication,
+                                         annotation: annotation
+        )
         return true
     }
     
+    // Respond to URI scheme links (deprecated - OLDEST)
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        print("handleOpen url: URL called")
+        Branch.getInstance().handleDeepLink(url)
+        return true
+    }
     
-    
-    
+    // Respond to Universal Links
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        print("continue userActivity: NSUserActivity called")
+        Branch.getInstance().continue(userActivity)
+        return true
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
